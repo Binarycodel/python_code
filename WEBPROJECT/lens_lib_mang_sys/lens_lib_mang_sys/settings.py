@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku
+from threading import local
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +27,7 @@ SECRET_KEY = 'django-insecure-orlq%+_zizywqpum4hxs9vwds9(e1z7v#t_lfsu#n-qd6$fj$3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["e-lens.herokuapp.com"]
 
 
 # Application definition
@@ -79,13 +81,24 @@ WSGI_APPLICATION = 'lens_lib_mang_sys.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'Lens_library_database',
+#         'USER': 'postgres',
+#         'PASSWORD': 'binary', 
+#         'HOST': 'localhost'
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Lens_library_database',
-        'USER': 'postgres',
-        'PASSWORD': 'binary', 
-        'HOST': 'localhost'
+        'NAME': 'dafb3d6bjo8l6r',
+        'USER': 'gixhoncmamukbi',
+        'PASSWORD': '435057b7f4183653b84c9baeadb616e1653372f3daa46e94a3058c0a16c944bc', 
+        'HOST': 'ec2-18-208-55-135.compute-1.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
@@ -128,6 +141,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
+django_heroku.settings(locals())
 
 
 # Default primary key field type
