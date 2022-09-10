@@ -1,0 +1,483 @@
+{% load static %}
+{% static images as baseUrl %}
+
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from www.bootstrapdash.com/demo/connect-plus-free/jquery/template/pages/samples/blank-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 25 Aug 2022 22:08:20 GMT -->
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Lens E-library</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{% static 'vendors/mdi/css/materialdesignicons.min.css' %}" >
+    <link rel="stylesheet" href="{% static 'vendors/flag-icon-css/css/flag-icon.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+
+    <style>
+      a:link {
+        text-decoration: none;
+        color: white;
+
+      }
+      
+      a:visited {
+        text-decoration: none;
+        color: white;
+
+      }
+      
+      a:hover {
+        text-decoration: none;
+        color: gray;
+
+      }
+      
+      a:active {
+        text-decoration: none;
+        color: white;
+
+      }
+
+    </style>
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles --> 
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:../../partials/_navbar.html -->
+      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+          <a class="navbar-brand brand-logo" href="#"><img width="50" height="200" src="{% static 'accoutName.png' %}" alt="logo" /></a>
+          <a class="navbar-brand brand-logo-mini" href="#"><img src="{% static 'images/logo-mini.svg' %}" alt="logo" /></a>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-stretch">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="mdi mdi-menu"></span>
+          </button>
+          <div class="search-field d-none d-xl-block">
+            <form class="d-flex align-items-center h-100" action="#">
+              <div class="input-group">
+                <div class="input-group-prepend bg-transparent">
+                  <i class="input-group-text border-0 mdi mdi-magnify"></i>
+                </div>
+                <input type="text" class="form-control bg-transparent border-0" placeholder="Find books">
+              </div>
+            </form>
+          </div>
+          <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item  dropdown d-none d-md-block">
+              <a class="nav-link dropdown-toggle" id="reportDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> E-CATEGORIES </a>
+              <div class="dropdown-menu navbar-dropdown" aria-labelledby="reportDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="mdi mdi-file-pdf me-2"></i>PAST QUESTIONS </a>
+                
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="../../account">
+                  <i class="mdi mdi-file-word me-2"></i>TEXT-BOOKS </a>
+              </div>
+            </li>
+            <li class="nav-item  dropdown d-none d-md-block">
+              <a class="nav-link dropdown-toggle" id="projectDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> DOWNLOADS </a>
+              <div class="dropdown-menu navbar-dropdown" aria-labelledby="projectDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="mdi mdi-eye-outline me-2"></i>E-COPY PROJECT</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                  <i class="mdi mdi-pencil-outline me-2"></i>E-COPY SEMINALS </a>
+              </div>
+            </li>
+            <!-- <li class="nav-item nav-language dropdown d-none d-md-block">
+              <a class="nav-link dropdown-toggle" id="languageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="nav-language-icon">
+                  <i class="flag-icon flag-icon-us" title="us" id="us"></i>
+                </div>
+                <div class="nav-language-text">
+                  <p class="mb-1 text-black">English</p>
+                </div>
+              </a>
+              <div class="dropdown-menu navbar-dropdown" aria-labelledby="languageDropdown">
+                <a class="dropdown-item" href="#">
+                  <div class="nav-language-icon me-2">
+                    <i class="flag-icon flag-icon-ae" title="ae" id="ae"></i>
+                  </div>
+                  <div class="nav-language-text">
+                    <p class="mb-1 text-black">Arabic</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                  <div class="nav-language-icon me-2">
+                    <i class="flag-icon flag-icon-gb" title="GB" id="gb"></i>
+                  </div>
+                  <div class="nav-language-text">
+                    <p class="mb-1 text-black">English</p>
+                  </div>
+                </a>
+              </div>
+            </li> -->
+            <li class="nav-item nav-profile dropdown">
+              <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="nav-profile-img">
+                  <img src="{{lens_student.passport.url}}" alt="image">
+                </div>
+                <div class="nav-profile-text">
+                  <p class="mb-1 text-black">{{lens_student.student_name|upper}}</p>
+                </div>
+              </a>
+              <div class="dropdown-menu navbar-dropdown dropdown-menu-right p-0 border-0 font-size-sm" aria-labelledby="profileDropdown" data-x-placement="bottom-end">
+                <div class="p-3 text-center bg-primary">
+                  <img class="img-avatar img-avatar48 img-avatar-thumb" src="{{lens_student.passport.url}}" alt="">
+                </div>
+                <div class="p-2">
+                 
+                  <h5 class="dropdown-header text-uppercase  ps-2 text-dark mt-2">Actions</h5>
+                  <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="#">
+                    <span>Settings</span>
+                    <i class="mdi mdi-lock ms-1"></i>
+                  </a>
+                  <div role="separator" class="dropdown-divider"></div>
+                  <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="logout">
+                    <span>Log Out</span>
+                    <i class="mdi mdi-logout ms-1"></i>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              
+              <!--  -->
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
+                <i class="mdi mdi-bell-outline"></i>
+                <span class="count-symbol bg-danger"></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                <h6 class="p-3 mb-0 bg-primary text-white py-4">Notifications</h6>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-success">
+                      <i class="mdi mdi-calendar"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                    <h6 class="preview-subject font-weight-normal mb-1">Event today</h6>
+                    <p class="text-gray ellipsis mb-0"> Just a reminder that you have an event today </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <div class="dropdown-divider"></div>
+                <h6 class="p-3 mb-0 text-center">See all notifications</h6>
+              </div>
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="mdi mdi-menu"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:../../partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item nav-category">Quick Link</li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                <span class="menu-title">library</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                <span class="menu-title">handout</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                <span class="menu-title">Projects</span>
+              </a>
+            </li>
+          
+            <li class="nav-item documentation-link">
+              <a class="nav-link">
+                <span class="icon-bg">
+                  <i class="mdi mdi-file-document-box menu-icon"></i>
+                </span>
+                <span class="menu-title">Documentation</span>
+              </a>
+            </li>
+           
+            <li class="nav-item sidebar-user-actions">
+              <div class="sidebar-user-menu">
+                <a href="#" class="nav-link"><i class="mdi mdi-settings menu-icon"></i>
+                  <span class="menu-title">Settings</span>
+                </a>
+              </div>
+            </li>
+           
+            <li class="nav-item sidebar-user-actions">
+              <div class="sidebar-user-menu">
+                <a href="logout" class="nav-link"><i class="mdi mdi-logout menu-icon"></i>
+                  <span class="menu-title">Log Out</span></a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title"> LENS-E-LIBRARY (PAST QUESTIONS/HANDOUT) </h3>
+              <!-- <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">UI Elements</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Typography</li>
+                </ol>
+              </nav> -->
+            </div>
+                                                   <!-- THIS IS THE BODY SECTION -->
+                      
+                                                   <div class="row">
+                                                   
+                                          
+                                                    <div class="col-md-4 grid-margin stretch-card">
+                                                      <div class="card">
+                                                        <div class="card-body">
+                                                          <h4  class="card-title"><i class="mdi mdi-account icon-lg text-warning"></i>USER INFORMATION</h4>
+                                                          <!-- <p class="card-description"><code></code><code>&lt;&gt;</code></p> -->
+                                                          <ul class="list-star">
+                                                            <li><b>Name     : {{lens_student.student_name|title}} </b></li>
+                                                            <li><b>Email    : {{lens_student.email|lower}} </b></li>
+                                                            <li><b>Lib-Code : {{lens_student.password}} </b></li>
+                                                            <li><b>Matric   : {{lens_student.matric_number|upper}} </b></li>
+                                                            <li><b>Dept     : {{lens_student.dept|upper}} </b></li>
+
+                                                            <!-- <li><b>Lib-Code : {{lens_student.password}} </b></li> -->
+                                                            <!-- <li>Facilisis in pretium nisl aliquet</li>
+                                                            <li>Nulla volutpat aliquam velit></li> -->
+                                                          </ul>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="col-md-4 grid-margin stretch-card">
+                                                      <div class="card">
+                                                        <div class="card-body">
+                                                          <h4 class="card-title"><i class="mdi mdi-book-open-page-variant icon-lg text-warning"></i> E-BOOK INFORMATION</h4>
+                                                          <!-- <p class="card-description">Add class <code>.list-arrow</code> to <code>&lt;&gt;</code></p> -->
+                                                          <ul class="list-star">
+                                                            <li><b>NO OF E-BOOK : {{ebooks|length}} </b></li>
+                                                            <li><b>FORMAT    : PDF, EXEL, IMG, PPT, DOX </b></li>
+                                                            <li><b>MATERIALS : TXT-BOOKS, PAST-Q, & HANDOUT </b></li>
+                                                            <!-- <li><b>Matric    : {{lens_student.matric_number}} </b></li> -->
+                                                            <!-- <li><b>Lib-Code : {{lens_student.password}} </b></li> -->
+                                                            <!-- <li>Facilisis in pretium nisl aliquet</li>
+                                                            <li>Nulla volutpat aliquam velit></li> -->
+                                                          </ul>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    
+
+                                                    <div class="col-md-4 grid-margin stretch-card">
+                                                      <div class="card">
+                                                        <div class="card-body">
+                                                          <h4><img src="{{lens_student.passport.url}}" alt="passport" width="200" height="200"  /></h4>
+
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+
+                                                  <!-- END OF STATISTIC DATA -->
+
+                                                  <!-- TABLE -->
+           
+                                                  <div class="card">
+
+                                                    <div class="card-body">
+                                                      <h4 class="card-title">HANDOUT</h4>
+                                                      <p class="card-description"> Download/Preview Past Questions</p>
+                                                      <p>
+                                                        <div class="form-group row">
+                                                          
+                                                          <div class="col-sm-10">
+                                                            <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Search e-Books">
+                                                          </div>
+                                                          <button type="submit" for="exampleInputUsername2" class="col-sm-2 col-form-button">Search</button>
+                                                        </div>
+
+                                                      </p>
+                                                      <table class="table table-hover">
+                                                        <thead>
+                                                          <tr>
+                                                            <th>S/N</th>
+                                                            <th>COURSE CODE</th>
+                                                            <th>COURSE TITLE</th>
+                                                            <th>LECTURER</th>
+                                                            <th>MATERIAL</th>
+                                                            <th>YEAR</th>
+                                                            <th>ACTION</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                          {% for post in ebooks %}
+                                                          {% if post.material_type == 'handout' and post.level ==  lens_student.level %}
+                                                          <tr>
+                                                            <td>{{post.id}}</td>
+                                                            <td>{{post.course_code|upper}}</td>
+                                                            <td>{{post.course_title}}</td>
+                                                            <td>{{post.lecturer}}</td>
+                                                            <td>{{post.material_type}}</td>
+                                                            <td>{{post.year}}</td>
+                                                            <td>
+                                                              <button type="button" class="btn btn-outline-primary btn-icon-text">
+                                                              <i class="mdi mdi-file-check btn-icon-prepend"></i> Preview</button>
+                                                                <button type="button" class="btn btn-success btn-icon-text">
+                                                                  <a href="{{post.efile.url}}" download="{{post.efile.url}}" >
+                                                                  <i class="mdi mdi-file-check btn-icon-prepend"></i>
+                                                                   Download
+                                                                  </a>
+                                                                  </button>
+                                                            </td>
+                                                          </tr>
+                                                          {% endif %}
+                                                          {% endfor %}
+                                                        
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                  </div>
+                                                  <br/>
+                                                  <div class="btn-group" role="group" aria-label="Basic example">
+                                                    <button type="submit" href='content' class="btn btn-outline-secondary"> <a href="#" style="text-decoration: none; color:black">Page 1</a></button>
+                                                    <button type="button" class="btn btn-outline-secondary"> <a href="#" style="text-decoration: none; color:black">Page 2</a></button>
+                                                    <button type="button" class="btn btn-outline-secondary"> <a href="#" style="text-decoration: none; color:black">Page 3</a></button>
+                                                  </div>
+
+                                                  <!-- end of table -->
+                                                
+                                        
+
+                                                 <br/>
+                                                <br/>
+
+                                                   <!-- TABLE FOR  HARD COPIES -->
+           
+                                                   <div class="card">
+
+                                                    <div class="card-body">
+                                                      <h4 class="card-title">PAST QUESTIONS</h4>
+                                                      <p class="card-description"> Download/Preview Past Questions</p>
+                                                      <p>
+                                                        <div class="form-group row">
+                                                          
+                                                          <div class="col-sm-10">
+                                                            <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Search e-Books">
+                                                          </div>
+                                                          <button type="submit" for="exampleInputUsername2" class="col-sm-2 col-form-button">Search</button>
+                                                        </div>
+
+                                                      </p>
+                                                      <table class="table table-hover">
+                                                        <thead>
+                                                          <tr>
+                                                            <th>S/N</th>
+                                                            <th>COURSE CODE</th>
+                                                            <th>COURSE TITLE</th>
+                                                            <th>LECTURER</th>
+                                                            <th>MATERIAL</th>
+                                                            <th>YEAR</th>
+                                                            <th>ACTION</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                          {% for post in ebooks %}
+                                                          {% if post.material_type == 'PastQ' and post.level ==  lens_student.level %}
+                                                          <tr>
+                                                            <td>{{post.id}}</td>
+                                                            <td>{{post.course_code|upper}}</td>
+                                                            <td>{{post.course_title}}</td>
+                                                            <td class="text-danger">{{post.lecturer}}</td>
+                                                            <td>{{post.material_type}}</td>
+                                                            <td>{{post.year}}</td>
+                                                            <td>
+                                                              <button type="button" class="btn btn-outline-primary btn-icon-text">
+                                                              <i class="mdi mdi-file-check btn-icon-prepend"></i> Preview</button>
+                                                                <button type="button" class="btn btn-success btn-icon-text">
+                                                                  <a href="{{post.efile.url}}" download="{{post.efile.url}}" >
+                                                                  <i class="mdi mdi-file-check btn-icon-prepend"></i>
+                                                                   Download
+                                                                  </a>
+                                                                  </button>
+                                                            </td>
+                                                          </tr>
+                                                          {% endif %}
+                                                          {% endfor %}
+                                                        
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                  </div>
+                                                  <br/>
+                                                  <div class="btn-group" role="group" aria-label="Basic example">
+                                                    <button type="submit" href='content' class="btn btn-outline-secondary"> <a href="#" style="text-decoration: none; color:black">Page 1</a></button>
+                                                    <button type="button" class="btn btn-outline-secondary"> <a href="#" style="text-decoration: none; color:black">Page 2</a></button>
+                                                    <button type="button" class="btn btn-outline-secondary"> <a href="#" style="text-decoration: none; color:black">Page 3</a></button>
+                                                  </div>
+
+                                                  <!-- end of table -->
+
+                                                  <!-- {% for post in ebooks %}
+                                                  <h5> {{post.title}} </h5>
+                                                  <a href="{{post.efile.url}}" download="{{post.efile.url}}">Download</a>
+                                                  {% endfor %} -->
+
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+          <footer class="footer">
+            <div class="footer-inner-wraper">
+              <div class="d-sm-flex justify-content-center justify-content-sm-between py-2">
+                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © <a href="https://www.bootstrapdash.com/" target="_blank">bootstrapdash.com </a>2021</span>
+                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Only the best <a href="https://www.bootstrapdash.com/" target="_blank"> Bootstrap dashboard </a> templates</span>
+              </div>
+            </div>
+          </footer>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="{% static 'js/off-canvas.js' %}"></script>
+    <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+    <script src="{% static 'js/misc.js' %}"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <!-- End custom js for this page -->
+  </body>
+
+<!-- Mirrored from www.bootstrapdash.com/demo/connect-plus-free/jquery/template/pages/samples/blank-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 25 Aug 2022 22:08:20 GMT -->
+</html>

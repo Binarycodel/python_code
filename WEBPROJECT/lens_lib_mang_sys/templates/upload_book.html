@@ -1,0 +1,90 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from www.bootstrapdash.com/demo/connect-plus-free/jquery/template/pages/samples/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 25 Aug 2022 22:08:20 GMT -->
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Connect Plus</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{% static 'vendors/mdi/css/materialdesignicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/flag-icon-css/css/flag-icon.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center auth">
+          <div class="row flex-grow">
+            <div class="col-lg-4 mx-auto">
+              <div class="auth-form-light text-left p-5">
+                <!-- <h5 style="color:black; text-align:center">UPLOAD HANDOUT / COURSE MATERIAL</h5> -->
+                <!-- <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6> -->
+                <img width='300' height="100" src="{% static 'adminlecturers.jpg' %}">
+                <br/>
+                <!-- the form -->
+                <form  action="uploadmaterial" method="post" enctype="multipart/form-data"> 
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <button type="submit" class="btn btn-primary" >UPLOAD</button>
+                    <a href="{% url 'logout' %}"><button type="button" class="btn btn-primary" >LOGOUT</button></a>
+
+                </form>
+
+
+                <!-- end of form data -->
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="{% static 'js/off-canvas.js' %}"></script>
+    <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+    <script src="{% static 'js/misc.js' %}"></script>
+    <!-- endinject -->
+    <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="{% static 'vendors/select2/select2.min-2.html' %}"></script>
+    <script src="{% static 'vendors/typeahead.js/typeahead.bundle.min.html' %}"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="../../assets/js/off-canvas.js"></script>
+    <script src="{% static 'js/hoverable-collapse.j' %}"></script>
+    <script src="{% static 'js/misc.js' %}"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="{% static 'js/file-upload.js' %}"></script>
+    <script src="{% static 'js/typeahead.js' %}"></script>
+    <script src="{% static 'js/select2.js' %}"></script>
+
+
+
+  </body>
+
+<!-- Mirrored from www.bootstrapdash.com/demo/connect-plus-free/jquery/template/pages/samples/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 25 Aug 2022 22:08:20 GMT -->
+</html>
