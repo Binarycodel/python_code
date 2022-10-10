@@ -1,0 +1,60 @@
+algorithm for word inflected form of wordnet
+
+step involoved
+
+step 1 : import list of english words 
+step 2 : initailize list of all inglish words
+step 4 : intialize singular and plural list [data structure]
+step 5 : input word
+step 6 :  if word is not == _exit
+step 7 : check singular list
+			if Found in singular list
+step 8 : print -> word is singular
+step 9 :    if word is speltCorrectly 
+step 10: return True and print dictionary data
+			else 
+step 11: get possible suggestion and print suggested words
+step 12: identify Inflation
+			if Found in plural list
+step 13: same as step 8 - 12
+			if Not Found in both singular and plural list
+				if user_input not spelt correctly
+step 14: initialize posible suggestion word 
+step 15: print suggested words
+step 16: identify Inflation
+
+	Algorithm for word inflation identifion
+	
+	Example word = shool
+
+step 1: initialize list of 
+		1. suggested_word e.g ['shoo', 'school', 'stool', 'spool', 'shoal', 'shoos', 'shoot',......
+		2. inflected_word e.g ['s','h','o','o','l']
+			
+			LOOP START
+step 2: loop through list of suggested words
+step 3: convert each word in suggested wordsList to a list e.g ['s','h','o','o','l']
+step 4: 	if inflated  wordList is empty
+				print could not found possible inflation
+					break out of the loop
+step 5:		if inflated list == list of a suggested word e.g ['s','h','o','o'] = ['s','h','o','o']
+				print found and the inflated word
+					break out of the loop
+step 6:		if inflated list != list of a suggested word e.g ['s','h','o','o'] = ['s','h','o','o','l']	
+				print No match found yet
+step 7:				REPEAT STEP 2 TO 6(by picking next suggested word) 
+
+			LOOP ENDS
+			
+			if LOOP ENDS successfull without BREAK
+step  9: remove last index of inflected_word (inflected_word.pop())
+step 10: repeat STEP 1 TO 8 process again with the new inflected_word list ()
+step 11     if found 
+				print dictionary meanining 
+			esle 
+				print Not found.(Meaning word is totally meaningless)
+
+
+
+
+
